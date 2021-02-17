@@ -24,13 +24,14 @@ class AdminController extends CI_Controller
     $this->load->view('Page', $pageData);
   }
 
-  public function kelola_user()
+  public function kelolah_seller()
   {
     $this->SecurityModel->rolesOnlyGuard(array('admin', 'kpb'));
 
     $pageData = array(
       'title' => 'Kelola User',
-      'content' => 'admin/KelolaUserPage',
+      // 'content' => 'admin/KelolaUserPage',
+      'content' => 'admin/KelolahSeller',
       'breadcrumb' => array(
         'Home' => base_url(),
       ),

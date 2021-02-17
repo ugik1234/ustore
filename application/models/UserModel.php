@@ -6,12 +6,12 @@ class UserModel extends CI_Model
 
 	public function getAllUser($filter = [])
 	{
-		$this->db->select("u.*, r.*, eks.id_perusahaan, b.id as id_buyer, b.region");
+		$this->db->select("u.*, r.*");
 
 		$this->db->from('user as u');
 		$this->db->join('role as r', 'r.id_role = u.id_role');
-		$this->db->join('perusahaan as eks', 'eks.id_user = u.id_user', 'LEFT');
-		$this->db->join('buyer as b', 'b.id_user = u.id_user', 'LEFT');
+		// $this->db->join('perusahaan as eks', 'eks.id_user = u.id_user', 'LEFT');
+		// $this->db->join('buyer as b', 'b.id_user = u.id_user', 'LEFT');
 		if (empty($filter['is_login'])) {
 			$this->db->select("NULL as password", FALSE);
 		}
@@ -133,10 +133,10 @@ class UserModel extends CI_Model
 		if ($data['id_role'] == 2) {
 			ini_set('date.timezone', 'Asia/Jakarta');
 			$date = date("Y-m-d h:i:s");
-			if (!empty($data['nama_perusahaan'])) $this->db->set('nama_perusahaan', $data['nama_perusahaan']);
-			if (!empty($data['alamat'])) $this->db->set('lok_perusahaan_full', $data['alamat']);
+			if (!empty($data['nama_seller'])) $this->db->set('nama_seller', $data['nama_seller']);
+			if (!empty($data['alamat_seller'])) $this->db->set('alamat_seller', $data['alamat_seller']);
 
-			$this->db->insert('perusahaan', ['id_user' => $id_user, 'date_modified' => $date]);
+			$this->db->insert('seller', ['id_user' => $id_user, 'date_modified' => $date]);
 			ExceptionHandler::handleDBError($this->db->error(), "Tambah User", "Perusahaan");
 		}
 

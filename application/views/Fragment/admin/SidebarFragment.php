@@ -1,4 +1,22 @@
-<div id="wrapper">
+<li>
+  <a href="#">Admin
+    <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+  <div class="navbar-dropdown navbar-dropdown-single">
+    <div class="navbar-box">
+      <div class="box-full">
+        <div class="box clearfix">
+          <ul>
+            <li class="label">Admin Menu</li>
+            <li><a href="<?= site_url('AdminController/kelolah_tim') ?>">Kelolah TIM</a></li>
+            <li><a href="<?= site_url('AdminController/kelolah_seller') ?>">Kelolah Seller</a></li>
+            <li><a href="<?= site_url('AdminController/kelolah_customer') ?>">Kelolah Customer</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+<!-- <div id="wrapper">
 
   <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
@@ -44,4 +62,4 @@
   </nav>
   <script>
     $(document).ready(function() {});
-  </script>
+  </script> -->

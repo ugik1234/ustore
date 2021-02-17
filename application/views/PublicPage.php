@@ -1,4 +1,4 @@
 <?php
-$this->load->view('public/HeaderFragment');
+$this->load->view('Fragment/HeaderFragment');
 $this->load->view($content);
-$this->load->view('public/FooterFragment');
+$this->load->view('Fragment/FooterFragment');
